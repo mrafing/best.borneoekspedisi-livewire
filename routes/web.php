@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/manifest', Manifest::class);
+Route::get('/manifest', Manifest::class)->lazy();

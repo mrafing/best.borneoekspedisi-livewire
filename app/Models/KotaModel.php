@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class KotaModel extends Model
 {
     protected $table = 'tb_kota';
-    protected $cast = ['id' => 'string'];
+    protected $casts = ['id' => 'string'];
 
     public function kecamatan() : HasMany 
     {

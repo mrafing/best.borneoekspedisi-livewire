@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Models\PengirimModel;
+use App\Traits\Mutator\GenUid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use PHPUnit\Framework\Attributes\Before;
 
 class ManifestModel extends Model
 {
+    use GenUid;
+
     protected $table = 'tb_manifest';
     protected $guarded = ['id'];
     // protected $with = ['pengirim', 'penerima', 'barang', 'ongkir'];
@@ -31,5 +33,10 @@ class ManifestModel extends Model
     public function ongkir() : BelongsTo
     {
         return $this->belongsTo(OngkirModel::class, 'id_ongkir', 'id');
+    }
+
+    public function layanan() : BelongsTo
+    {
+        return $this->belongsTo(LayananModel::class, 'id_layanan', 'id');
     }
 }

@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use App\Models\ManifestModel;
+use App\Traits\Mutator\GenUid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PenerimaModel extends Model
 {
+    use GenUid;
+    
     protected $table = 'tb_penerima';
     protected $guarded = ['id'];
     protected $casts = ['id' => 'string'];
